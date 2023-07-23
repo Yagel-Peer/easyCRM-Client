@@ -1,0 +1,441 @@
+@import url('https://fonts.googleapis.com/css2?family=Clicker+Script&family=Heebo:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --font-clicker: 'Clicker Script', cursive;
+  --font-heebo: 'Heebo', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+
+  --color-cta: #ef233c;
+  --color-text: #2b2d42;
+  --color-bg-1: #edf2f4;
+  --color-bg-2: #8d99ae;
+
+  --transition: 200ms;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-poppins);
+  color: var(--color-text);
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.container {
+  height: 100%;
+  width: 1200px;
+  max-width: 90%;
+  margin: 0 auto;
+  display: flex;
+}
+
+/* HEADER */
+header {
+  height: 70px;
+  width: 100%;
+  background: var(--color-bg-2);
+}
+
+header .container {
+  justify-content: space-between;
+  align-items: center;
+}
+
+header a {
+  text-decoration: none;
+  color: var(--color-text);
+  display: block;
+  transition: var(--transition);
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+header ul a:hover {
+  color: var(--color-bg-1);
+  transform: translateY(5px);
+}
+
+header .logo {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+header .logo span {
+  font-family: var(--font-clicker);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--color-bg-1);
+}
+
+ul.auth span {
+  color: var(--color-bg-1);
+}
+
+/* MAIN */
+main {
+  min-height: calc(100vh - 70px);
+  width: 100%;
+  padding: 50px;
+  background: var(--color-bg-1);
+}
+
+main .container {
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+/* AUTH & FORM */
+section.auth {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section form {
+  margin: 36px 0;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form .cancel {
+  text-decoration: none;
+  background: transparent;
+  border: none;
+}
+
+form .cancel:hover {
+  color: var(--color-cta);
+}
+
+section form input[type='text'],
+section form input[type='email'],
+section form input[type='tel'],
+section form input[type='number'],
+section form input[type='password'] {
+  height: 32px;
+  padding-left: 7px;
+  color: var(--color-text);
+  border: none;
+  border-bottom: 1px solid var(--color-bg-2);
+  background: transparent;
+  margin-bottom: 7px;
+}
+
+section form input[type='submit'] {
+  height: 32px;
+  margin-top: 7px;
+  border: 1px solid var(--color-text);
+  background: var(--color-bg-1);
+  color: var(--color-bg-2);
+  cursor: pointer;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: var(--transition);
+}
+
+section form input[type='submit']:hover {
+  border: 1px solid var(--color-bg-2);
+  background: var(--color-bg-2);
+  color: var(--color-bg-1);
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+span.error {
+  color: var(--color-cta);
+  margin-bottom: 16px;
+}
+
+section.auth p a:hover {
+  color: var(--color-bg-2);
+}
+
+/* ALL - PAGE */
+
+.filters {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.filters .btn {
+  padding: 0.25rem 0.75rem;
+  background: var(--color-text);
+  color: var(--color-bg-1);
+}
+
+.filters .btn:hover {
+  text-decoration: none;
+  color: var(--color-bg-2);
+}
+
+.filters ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.filters a {
+  text-decoration: none;
+}
+
+.filters .filter-link[aria-current='status'] {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+input[type='search'] {
+  padding-left: 10px;
+}
+
+.empty {
+  margin-top: 36px;
+}
+
+table.list {
+  width: 1200px;
+  max-width: 100%;
+  margin-top: 50px;
+  border: 1px solid var(--color-bg-2);
+  background: var(--color-text);
+}
+
+table.list th {
+  width: 200px;
+  max-width: calc(100% / 7);
+}
+
+table.list th {
+  background: var(--color-text);
+  color: var(--color-bg-1);
+}
+
+table.list tr.lead {
+  background: var(--color-bg-2);
+  text-align: center;
+}
+
+td .btn {
+  text-decoration: none;
+  color: var(--color-bg-1);
+}
+
+td .btn:hover {
+  text-decoration: underline;
+}
+
+/* SINGLE */
+
+.single {
+  display: flex;
+  gap: 36px;
+}
+
+.single .form {
+  flex: 2;
+}
+
+.single form input {
+  border: none;
+}
+
+.single .records {
+  flex: 3;
+  height: 500px;
+  padding: 16px;
+  border:1px solid var(--color-text);
+  border-radius: 25px;
+  overflow-y: auto;
+}
+
+.single .records h3 {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.single .records ul.records-list {
+  list-style: none;
+  padding: 50px;
+  width: 100%;
+  /* border:1px solid var(--color-bg-2);
+  border-radius: 25px; */
+  margin-bottom: 16px;
+}
+
+.single .records button.add {
+ width: 100%;
+ margin-top: 16px;
+}
+
+.single .actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.single input[type='submit'],
+.single button {
+  padding: 0.25rem 0.75rem;
+}
+
+.single button.delete {
+  margin-top: 7px;
+  border-radius: 3px;
+  cursor: pointer;
+  background: var(--color-cta);
+  border: 1px solid black;
+  color: var(--color-bg-1);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: var(--transition);
+}
+
+.single button.delete:hover {
+  background: var(--color-bg-1);
+  color: var(--color-cta);
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    border: 1px solid var(--color-cta);
+}
+
+
+
+/* DELETE LEAD POPUP */
+
+section.delete-popup {
+  display: none;
+}
+
+section.delete-popup.open {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+section.delete-popup.open h2 {
+  color: var(--color-bg-1);
+}
+
+textarea {
+  padding: 10px;
+}
+
+section.delete-popup.open button {
+  color: var(--color-bg-1);
+  cursor: pointer;
+}
+
+section.delete-popup.open button:hover {
+  color: var(--color-cta);
+}
+
+/* ADD RECORD POPUP */
+
+section.add-popup {
+  display: none;
+}
+
+section.add-popup.open {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+section.add-popup.open h2 {
+  color: var(--color-bg-1);
+}
+
+textarea {
+  padding: 10px;
+}
+
+section.add-popup.open button {
+  color: var(--color-bg-1);
+  cursor: pointer;
+}
+
+section.add-popup.open button:hover {
+  color: var(--color-cta);
+}
+
+/* RECORD */
+
+.records form {
+  margin:0;
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+li.record {
+  width: 100%;
+  padding: 16px;
+  margin: 5px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--color-bg-2);
+}
+
+.success {
+  color: green;
+  text-align: center;
+  margin-top: 16px;
+}
+
+section.single.sale {
+  flex-direction: column;
+  width: 200px;
+}
+
+#add-sale p {
+  font-size: 12px;
+  color: white;
+}
+
+
+#add-sale p a {
+  color: aquamarine;
+}

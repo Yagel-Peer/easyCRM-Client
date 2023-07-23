@@ -1,0 +1,9 @@
+<% const {id} = lead %>
+<section id="add-record" class="add-popup">
+  <h2>Add Record</h2>
+  <form action="/app/leads/<%= id %>/records" method="post">
+    <textarea name="content" id="" cols="30" rows="5" placeholder="Write your record content..."></textarea>
+    <input type="submit" value="Add Record">
+    <button type="button" class="cancel" onclick="closeAddPopup('add-record')">Cancel</button>
+  </form>
+</section>

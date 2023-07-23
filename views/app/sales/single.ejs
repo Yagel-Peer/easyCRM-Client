@@ -1,0 +1,15 @@
+<%- layout('app/layout') %>
+<h1>Single Sale Page</h1>
+<% const {_id, lead, product } = sale %>
+<section class="single sale">
+  <h3><%= lead.name %></h3>
+  <h5><%= product.title %></h5>
+  <h5>$ <%= product.price %></h5>
+  <% if(successMsg) { %>
+    <p class="success"><%=successMsg%></p>
+  <% } %>
+  <button type="button" class="delete" onclick="openDeletePopup()">Delete</button>
+        <a href="/app/sales" class="btn">Go Back</a>
+</section>
+<%- include('../components/sales/deleteSale', {product}) %>
+<script src="/js/deletePopupScript.js"></script>

@@ -1,0 +1,39 @@
+<nav class="filters">
+  <ul>
+    <li><a class="btn" href="/app/leads/new">Add New</a></li>
+  </ul>
+  <ul class="sort">
+    <li>
+      <span>status:</span>
+    </li>
+    <li>
+      <a class="filter-link" href="/app/leads">all</a>
+    </li>
+    <li>
+      <a class="filter-link" href="/app/leads?status=new">new</a>
+    </li>
+    <li>
+      <a class="filter-link" href="/app/leads?status=no%20reply">no reply</a>
+    </li>
+    <li>
+      <a class="filter-link" href="/app/leads?status=follow%20up">follow up</a>
+    </li>
+    <li>
+      <a class="filter-link" href="/app/leads?status=lost">lost</a>
+    </li>
+    <li>
+      <a class="filter-link" href="/app/leads?status=invalid">invalid</a>
+    </li>
+    <li>
+      <a class="filter-link" href="/app/leads?status=close">close</a>
+    </li>
+  </ul>
+  <ul class="search">
+    <li>
+      <form action="/leads/search" method="post">
+        <input type="search" name="value" placeholder="search" />
+        <input type="submit" value="search" disabled />
+      </form>
+    </li>
+  </ul>
+</nav>

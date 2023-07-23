@@ -1,0 +1,17 @@
+<%- layout('app/layout') %>
+<section class="new">
+  <h1>New Lead Page</h1>
+  <form action="/app/leads" method="post">
+    <input type="text" name="name" placeholder="Name" required />
+    <input type="email" name="email" placeholder="Email" required />
+    <input type="tel" name="phone" placeholder="Phone number" required />
+    <h4>Marketing Info</h4>
+    <input type="text" name="marketing.source" placeholder="Source" required />
+    <input type="text" name="marketing.ad" placeholder="Ad" required />
+    <input type="submit" value="Add Lead" />
+    <a class="cancel" href="/app/leads">Cancel</a>
+  </form>
+  <% if(error) { %>
+    <span class="error"><%= error %></span>
+  <% } %>
+</section>

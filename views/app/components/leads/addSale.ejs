@@ -1,0 +1,21 @@
+
+<section id="add-sale" class="add-popup">
+  <h2>Add Sale</h2>
+  <form action="/app/leads/<%= lead._id %>/sales" method="post">
+    <input type="hidden" name="lead" value="<%= lead._id %>">
+    <% if(products.length === 0) { %>
+      <p>
+        You must <a href="/app/products/new">add a product</a> first
+      </p>
+      <% } else {%>
+        <select name="product" id="">
+        <% products.map((product) => { %>
+          <option value="<%= product._id %>"><%= product.title %> : <%= product.price %></option>
+        <% }) %>
+        </select>
+        <p>You want to add new product? <a href="/app/products/new">click here</a></p>
+        <input type="submit" value="Add Sale">
+        <% } %>
+        <button type="button" class="cancel" onclick="closeAddPopup('add-sale')">Cancel</button>
+  </form>
+</section>

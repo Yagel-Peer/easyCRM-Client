@@ -1,0 +1,24 @@
+<div class="records">
+  <h3>Records</h3>
+  <ul class="records-list">
+    <% if(records.length === 0) { %>
+    <div class="no-records">
+      <h5>This lead don't have records yet...</h5>
+    </div>
+    <% } else { %>
+      <% records.map((record) => { %>
+      <% const {_id, content} = record %>
+        <li class="record">
+          <form action="/app/leads/<%=lead._id%>/records/<%=record._id%>?_method=PUT" method="post">
+            <textarea name="content" cols="30" rows="3"><%= content %></textarea>
+            <button type="submit">update</button>
+          </form>
+          <form action="/app/leads/<%=lead._id%>/records/<%=record._id%>?_method=DELETE" method="post">
+            <button type="submit" class="delete">delete</button>
+          </form>
+        </li>
+    <% }) %>
+    <% } %>
+  </table>
+  <button class="add" onclick="openAddPopup('add-record')">Add Record</button>
+</div>

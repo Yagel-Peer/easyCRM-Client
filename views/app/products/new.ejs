@@ -1,0 +1,13 @@
+<%- layout('app/layout') %>
+<section class="new">
+  <h1>New Product Page</h1>
+  <form action="/app/products" method="post">
+    <input type="text" name="title" placeholder="Title" required />
+    <input type="number" name="price" placeholder="Price" step="0.01" required />
+    <input type="submit" value="Add Product" />
+    <a class="cancel" href="/app/products">Cancel</a>
+  </form>
+  <% if(error) { %>
+    <span class="error"><%= error %></span>
+  <% } %>
+</section>

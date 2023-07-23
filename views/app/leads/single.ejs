@@ -1,0 +1,49 @@
+<%- layout('app/layout') %>
+<h1>Single Lead Page</h1>
+<% const {_id, name, email, phone, status, marketing, records, sales} = lead %>
+<section class="single">
+  <div class="form">
+    <form action="/app/leads/<%= _id %>?_method=PUT" method="post">
+      <input name="name" type="text" value="<%= name %>" required />
+      <input name="contact" type="email" value="<%= email %>" required />
+      <input name="contact" type="tel" value="<%= phone %>" required />
+      <label for="status">Status:</label>
+      <select name="status" id="status" required >
+        <option value="<%= status %>">-- <%= status %> --</option>
+        <option value="new">new</option>
+        <option value="no reply">no reply</option>
+        <option value="follow up">follow up</option>
+        <option value="lost">lost</option>
+        <option value="invalid">invalid</option>
+        <option value="invalid">close</option>
+      </select>
+      <div class="marketing">
+        <h4>source: <%= marketing.source %></h4>
+        <h4>ad: <%= marketing.ad %></h4>
+      </div>
+      <div class="actions">
+        <input type="submit" value="Update" />
+        <button type="button" class="delete" onclick="openDeletePopup()">Delete</button>
+        <a href="/app/leads" class="btn">Go Back</a>
+      </div>
+      <% if(successMsg) { %>
+        <p class="success"><%=successMsg%></p>
+      <% } %>
+    </form>
+  </div>
+  <%- include('../components/leads/records', { records }) %>
+</section>
+<%- include('../components/leads/deleteLead', {lead}) %>
+<%- include('../components/leads/addRecord', {lead}) %>
+<%- include('../components/leads/addSale', {lead, products}) %>
+<div class="sales">
+  <% if(sales.length === 0) { %>
+    <h5>This lead don't buy anything yet...</h5>
+  <% } else { %>
+      <h5>This lead has already purchased <%= sales.length %> times</h5>
+    <% } %>
+  <button class="add" onclick="openAddPopup('add-sale')">Add Sale</button>
+</div>
+
+<script src="/js/deletePopupScript.js"></script>
+<script src="/js/addPopup.js"></script>

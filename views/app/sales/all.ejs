@@ -1,0 +1,23 @@
+<%- layout('app/layout') %>
+<h1>All Sale Page</h1>
+
+<%- include('../components/sales/salesFilter') %>
+<% if(sales.length === 0) { %>
+  <div class="empty">
+    <h4>I'ts seems like you don't have sale yet</h4>
+    <p>
+      but don't worry, go back to <a href="/app/leads">leads page</a>, find the right lead and click on "add sale" button
+    </p>
+  </div>
+  <% } else {%>
+  <table class="list">
+    <tr>
+      <th>Name</th>
+      <th>Product</th>
+      <th>Price</th>
+    </tr>
+    <% sales.map((sale) => { %>
+        <%- include('../components/sales/saleTr', { sale }) %>
+      <% }) %>
+    <% } %>
+  </table>

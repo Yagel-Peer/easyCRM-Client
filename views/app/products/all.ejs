@@ -1,0 +1,26 @@
+<%- layout('app/layout') %>
+<h1>All Product Page</h1>
+<% if(error) { %>
+  <span class="error"><%= error %></span>
+<% } %>
+<%- include('../components/products/productsFilter') %>
+<% if(products.length === 0) { %>
+  <div class="empty">
+    <h4>I'ts seems like you don't have product yet</h4>
+    <p>
+      but don't worry, you can create your first from
+      <a href="/app/products/new">here</a>
+    </p>
+  </div>
+  <% } else {%>
+  <table class="list">
+    <tr>
+      <th>Title</th>
+      <th>Price</th>
+      <th>actions</th>
+    </tr>
+    <% products.map((product) => { %>
+        <%- include('../components/products/productTr', { product }) %>
+      <% }) %>
+    <% } %>
+  </table>

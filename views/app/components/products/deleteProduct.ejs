@@ -1,0 +1,8 @@
+<% const {_id} = product %>
+<section class="delete-popup">
+  <h2>Are You Sure ?</h2>
+  <form action="/app/products/<%= _id %>?_method=DELETE" method="post">
+    <input type="submit" value="Delete">
+    <button type="button" class="cancel" onclick="closeDeletePopup()">Cancel</button>
+  </form>
+</section>

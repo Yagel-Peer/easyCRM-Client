@@ -1,0 +1,8 @@
+<% const { _id ,title, price} = product %>
+<tr class="lead">
+  <td><%= title %></td>
+  <td><%= price %></td>
+  <td>
+    <a href="/app/products/<%= _id %>" class="btn">edit</a>
+  </td>
+</tr>

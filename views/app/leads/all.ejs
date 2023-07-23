@@ -1,0 +1,33 @@
+<%- layout('app/layout') %>
+<h1>All Leads Page</h1>
+<% if(error) { %>
+  <span class="error"><%= error %></span>
+<% } %>
+<%- include('../components/leads/leadsFilter') %>
+<% if(leads.length === 0) { %>
+<div class="empty">
+  <h4>I'ts seems like you don't have leads yet</h4>
+  <p>
+    but don't worry, you can create your first from
+    <a href="/app/leads/new">here</a>
+  </p>
+</div>
+<% } else {%>
+<table class="list">
+  <tr>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Status</th>
+    <th>Source</th>
+    <th>Ad</th>
+    <th>actions</th>
+  </tr>
+  <% leads.map((lead) => { %>
+      <%- include('../components/leads/leadTr', { lead }) %>
+    <% }) %>
+  <% } %>
+</table>
+
+<script src="/js/activeSwitcher.js"></script>
+

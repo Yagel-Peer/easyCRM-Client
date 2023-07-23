@@ -1,0 +1,21 @@
+<%- layout('app/layout') %>
+<h1>Single Product Page</h1>
+<% const {_id, title, price} = product %>
+<section class="single sale">
+  <div class="form">
+    <form action="/app/products/<%= _id %>?_method=PUT" method="post">
+      <input name="title" type="text" value="<%= title %>" required />
+      <input name="price" type="number" value="<%= price %>" required />
+      <div class="actions">
+        <input type="submit" value="Update" />
+        <button type="button" class="delete" onclick="openDeletePopup()">Delete</button>
+        <a href="/app/products" class="btn">Go Back</a>
+      </div>
+      <% if(successMsg) { %>
+        <p class="success"><%=successMsg%></p>
+      <% } %>
+    </form>
+  </div>
+</section>
+<%- include('../components/products/deleteProduct', {product}) %>
+<script src="/js/deletePopupScript.js"></script>
